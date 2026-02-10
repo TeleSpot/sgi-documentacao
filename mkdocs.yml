@@ -1,1 +1,43 @@
-site_name: My Docs
+site_name: SIG - Documentação
+site_description: Documentação técnica do SIG (estrutura de dados e regras de negócio derivadas da planilha)
+site_url:
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - scheme: default
+      primary: dark blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+    - scheme: slate
+      primary: light blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+nav:
+  - Início: index.md
+  - Arquitetura:
+      - Visão geral: arquitetura/visao-geral.md
+      - Modelo de dados: arquitetura/modelo-dados.md
+  - Dados:
+      - Tabelas: dados/tabelas.md
+  - Regras de negócio:
+      - Regras: negocio/regras.md
+
+plugins:
+  - search
+  - include-markdown
