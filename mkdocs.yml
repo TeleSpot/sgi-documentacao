@@ -28,16 +28,33 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
 
-nav:
-  - Início: index.md
-  - Arquitetura:
-      - Visão geral: arquitetura/visao-geral.md
-      - Modelo de dados: arquitetura/modelo-dados.md
-  - Dados:
-      - Tabelas: dados/tabelas.md
-  - Regras de negócio:
-      - Regras: negocio/regras.md
-
 plugins:
   - search
   - include-markdown
+
+nav:
+  - Início: index.md
+
+  - Arquitetura:
+      - Visão geral: arquitetura/visao-geral.md
+      - Modelo de dados: arquitetura/modelo-dados.md
+      - Relacionamento entre tabelas: arquitetura/relacionamento-tabelas.md
+
+  - Dados:
+      - sig_registro: dados/tabela-sig_registro.md
+      - Blocos 1:1: dados/tabela-blocos-1a1.md
+      - sig_controle_adm: dados/tabela-sig_controle_adm.md
+      - sig_implantacao: dados/tabela-sig_implantacao.md
+      - sig_material: dados/tabela-sig_material.md
+
+  - Regras de negócio:
+      - Fluxo operacional: negocio/fluxo-operacional.md
+      - Status e marcos: negocio/status-e-marcos.md
+      - Regras de prazos: negocio/regras-de-prazos.md
+      - Regras financeiras: negocio/regras-financeiras.md
+      - Fórmulas e derivações: negocio/formulas-e-derivacoes.md
+
+  - Operação:
+      - Admin (Django): operacao/admin-django.md
+      - Convenções de nomes: operacao/convencoes-nomes.md
+      - Roadmap de importação: operacao/roadmap-importacao.md
