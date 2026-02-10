@@ -1,6 +1,5 @@
 site_name: SIG - Documentação
 site_description: Documentação técnica do SIG (estrutura de dados e regras de negócio derivadas da planilha)
-site_url:
 
 theme:
   name: material
