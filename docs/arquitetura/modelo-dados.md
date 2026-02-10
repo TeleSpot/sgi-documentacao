@@ -1,15 +1,29 @@
-# Modelo de dados
+# Modelo de Dados
 
-## Entidade raiz
+## Entidade Raiz
 
-A tabela raiz é `sig_registro`. Cada linha representa um cliente/OS/serial e possui um UUID.
+A tabela `sig_registro` representa **uma linha da aba principal da planilha**.
+
+Ela contém:
+
+- identificação do cliente
+- número da OS / serial
+- UUID único que vincula todas as demais tabelas
 
 ## Blocos 1:1
 
-A aba principal (Base_Dados) foi quebrada em tabelas 1:1 por seção da planilha, todas vinculadas por `sig_registro.id`.
+Cada bloco da planilha (viabilidade, vistoria, financeiro, etc.) foi convertido em uma tabela com relacionamento **OneToOne** com `sig_registro`.
+
+Características:
+
+- mesma chave primária (UUID)
+- dependência direta do registro raiz
+- dados opcionais na fase inicial
 
 ## Abas auxiliares
 
-- Controle ADM: 1:1 com o registro (mesmo UUID)
-- Implantação: tabela independente (vínculo será definido na fase de importação)
-- Materiais: catálogo auxiliar
+Algumas abas da planilha não possuem vínculo direto por ID e foram modeladas separadamente:
+
+- Controle ADM (1:1 com registro)
+- Implantação (vínculo definido futuramente)
+- Materiais (catálogo)

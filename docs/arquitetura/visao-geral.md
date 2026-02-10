@@ -1,14 +1,28 @@
-# Visão geral
+# Visão Geral da Arquitetura
 
-O SIG é um sistema (Django + PostgreSQL) derivado da planilha SIG_Para_Sistema.xlsx.
+O SIG foi projetado com foco em **clareza de dados, rastreabilidade e evolução segura**.
 
-Objetivo inicial:
+A arquitetura adota os seguintes princípios:
 
-- Replicar a planilha no banco de dados com fidelidade (estrutura e campos)
-- Preservar vínculos entre informações por registro
+- Uma **entidade raiz** representa uma linha da planilha
+- Cada bloco da planilha vira uma **tabela própria**
+- Relacionamentos 1:1 preservam a estrutura original
+- Campos permanecem flexíveis na fase inicial (Text / Date / Decimal)
 
-Estratégia adotada:
+## Componentes principais
 
-- Um registro raiz por linha da planilha (UUID)
-- Blocos da planilha separados em tabelas 1:1 (OneToOne) para evitar uma tabela monolítica
-- Abas auxiliares como tabelas próprias (ex.: Controle ADM, Implantação, Materiais)
+- Banco de dados: PostgreSQL
+- Backend: Django
+- Admin: Django Admin (validação estrutural)
+- Documentação: MkDocs Material
+
+## Estratégia de modelagem
+
+A planilha original possui mais de 90 colunas.  
+Ao invés de uma tabela monolítica, os dados foram organizados em:
+
+- uma tabela central (`sig_registro`)
+- tabelas auxiliares por etapa do processo (1:1)
+- tabelas independentes para abas auxiliares
+
+Isso reduz acoplamento e facilita manutenção.
